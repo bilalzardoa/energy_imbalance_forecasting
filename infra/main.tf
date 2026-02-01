@@ -18,11 +18,6 @@ provider "google" {
   region  = "europe-west1"
 }
 
-# Variabele voor je GCP project ID
-variable "project_id" {
-  type = string
-}
-
 # Lokale variabele voor projectnaam, gebruikt in resource namen
 locals {
   project_name = "imbalance-forecast"

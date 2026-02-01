@@ -1,0 +1,2 @@
+Het opzetten van de Infrastructure as Code voor de MLOps-omgeving.
+Het uitwerken van de prediction serving, monitoring en de setup voor hertraining van het imbalance forecasting-model.

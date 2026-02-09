@@ -31,11 +31,3 @@ resource "google_storage_bucket_iam_member" "pipeline_bucket_access" {
   role   = each.value
   member = "serviceAccount:${google_service_account.ml_sa.email}"
 }
-
-# Public Cloud Run access
-# resource "google_cloud_run_service_iam_member" "public_access" {
-#   service  = google_cloud_run_service.ml_model.name
-#   location = google_cloud_run_service.ml_model.location
-#   role     = "roles/run.invoker"
-#   member   = "allUsers"
-# }

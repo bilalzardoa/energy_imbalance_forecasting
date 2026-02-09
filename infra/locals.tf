@@ -1,31 +1,30 @@
 locals {
   project_name = "if-playground"
 
-  # All IAM configurations in one place
+  # IAM configurations
   iam_config = {
     project_roles = [
-      "roles/aiplatform.user",
-      "roles/logging.logWriter",
-      "roles/artifactregistry.reader",
-      "roles/run.admin"
+      "roles/aiplatform.user",           # Vertex AI access
+      "roles/logging.logWriter",         # Logging
+      "roles/artifactregistry.reader"    # Pull Docker images
     ]
     
     bucket_roles = {
       model_bucket = [
-        "roles/storage.objectAdmin"
+        "roles/storage.objectAdmin"      # Read/write models
       ]
       pipeline_bucket = [
-        "roles/storage.objectAdmin"
+        "roles/storage.objectAdmin"      # Pipeline artifacts
       ]
     }
   }
 
-  # API's to use
+  # Required APIs
   required_services = [
-    "aiplatform.googleapis.com",
-    "run.googleapis.com",
-    "artifactregistry.googleapis.com",
-    "cloudbuild.googleapis.com",
-    "iam.googleapis.com"
+    "aiplatform.googleapis.com",         # Vertex AI
+    "artifactregistry.googleapis.com",   # Docker images
+    "cloudbuild.googleapis.com",         # Build images
+    "iam.googleapis.com",                # IAM management
+    "storage.googleapis.com"             # Cloud Storage (optioneel, vaak al enabled)
   ]
 }

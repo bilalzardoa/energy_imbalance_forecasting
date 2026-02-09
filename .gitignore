@@ -4,6 +4,12 @@ venv/
 env/
 ENV/
 
+# ML models
+models/
+saved_models/
+*.pb
+*.keras
+*.h5
 # Python
 __pycache__/
 *.py[cod]
